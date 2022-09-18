@@ -1,3 +1,5 @@
+# This was another way I filtered out the prefered genres from anime.csv before I found out a more efficient way to do this.
+
 import pandas as pd
 
 df = pd.read_csv('animes.csv')
