@@ -1,5 +1,4 @@
 import pandas as pd
-import re
 
 print("````````````````````````````````````````````````````````````````````````````````````````````````````")
 print("Welcome to the Anime Recommendation Engine!")
@@ -44,23 +43,26 @@ while True:
                 break
 
         genre_list = []
+        temp_list = []
         genre = True
         while genre:
             print("````````````````````````````````````````````````````````````````````````````````````````````````````")
             print("You can pick any of the following genres! :\n {}".format(all_genres))
             genre_input = input("What genres would you like to watch? {Input: genre1, genre2, genre3, etc}\n")
-            genre_input = re.sub(r'\s+', '', genre_input)
             genre_list = genre_input.split(",")
-            temp_list = []
-
             for word in genre_list:
-                temp_list.append(word.title())
+                temp = word.strip()
+                temp = temp.title()
+                if temp == "Slice Of Life":
+                    temp = "Slice of Life"
+                temp_list.append(temp)
             genre_list = temp_list
 
             for item in genre_list:
                 if item not in all_genres:
                     genre = True
                     print("Invalid genre!")
+                    genre_list.clear()
                     break
                 else:
                     genre = False
