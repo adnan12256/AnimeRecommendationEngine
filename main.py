@@ -85,3 +85,7 @@ while True:
               "of animes according to your preferences!\n")
     else:
         exit(0)
+        
+   
+# THINGS I WANT TO ADD:
+# Add a search option for the anime where after the name is searched, the title, synopsis and the link is outputed
